@@ -22,7 +22,7 @@ public  string Senha { get; set; } = string.Empty;
 [Required]
 public  DateTime DataNascimento { get; set; }
 
-public  string Telefone { get; set; } = string.Empty;
+public  string? Telefone { get; set; }
 
 [Required]
 public  bool Ativo { get; set; } = true;
