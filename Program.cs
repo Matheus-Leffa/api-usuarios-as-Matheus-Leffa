@@ -32,6 +32,21 @@ app.MapGet("/usuarios/{id:int}", async (int id, IUsuarioService service, Cancell
     return usuario != null ? Results.Ok(usuario) : Results.NotFound(new { message = $"Usuário com id {id} não foi encontrado." });
 });
 
+// Post
+app.MapPost("/usuarios", async (UsuarioCreateDto usuarioDto, IUsuarioService service, IValidator<UsuarioCreateDto> validator, CancellationToken ct) =>
+{
+    var validationResult = await validator.ValidateAsync(usuarioDto, ct);
+
+    if(!validationResult.IsValid)
+    {
+        return Results.ValidationProblem(validationResult.ToDictionary());
+    }
+
+    var usuario = await service.CriarAsync(usuarioDto, ct);
+
+    return Results.Created($"/usuarios/{usuario.Id}", usuario);
+});
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
