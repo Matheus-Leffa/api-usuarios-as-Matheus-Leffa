@@ -27,8 +27,7 @@ public  string Telefone { get; set; } = string.Empty;
 [Required]
 public  bool Ativo { get; set; } = true;
 
-public  DateTime DataCriacao { get; set; } = DateTime.Now;
+public  DateTime DataCriacao { get; set; } = DateTime.UtcNow;
 
-public  DateTime? DataAtualizacao { get; set; } = DateTime.Now;
-
+public  DateTime? DataAtualizacao { get; set; }
 }
