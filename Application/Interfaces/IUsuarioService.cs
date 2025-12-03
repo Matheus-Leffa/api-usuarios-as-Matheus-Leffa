@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Application.DTOs;
 
-public interface IUsuario
+public interface IUsuarioService
 {
     Task<IEnumerable<UsuarioReadDto>> ListarAsync(CancellationToken  ct);
 

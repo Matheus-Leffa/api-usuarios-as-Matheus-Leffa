@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
+namespace Domain.Entities;
 public  class  Usuario
 
 {
@@ -12,16 +13,16 @@ public  int Id { get; set; }
 public  string Nome { get; set; } = string.Empty;
 
 [Required]
-public  string Email { get; set; }
+public  string Email { get; set; } = string.Empty;
 
 [Required]
 [MinLength(6)]
-public  string Senha { get; set; }
+public  string Senha { get; set; } = string.Empty;
 
 [Required]
 public  DateTime DataNascimento { get; set; }
 
-public  string Telefone { get; set; }
+public  string Telefone { get; set; } = string.Empty;
 
 [Required]
 public  bool Ativo { get; set; } = true;

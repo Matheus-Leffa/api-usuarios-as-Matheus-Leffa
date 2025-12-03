@@ -3,6 +3,7 @@ namespace Application.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Threading;
+using Domain.Entities;
 
 public interface IUsuarioRepository
 {
