@@ -47,6 +47,25 @@ app.MapPost("/usuarios", async (UsuarioCreateDto usuarioDto, IUsuarioService ser
     return Results.Created($"/usuarios/{usuario.Id}", usuario);
 });
 
+// Put
+app.MapPut("/usuarios/{id}", async (int id, UsuarioUpdateDto usuarioDto, IUsuarioService service, IValidator<UsuarioUpdateDto> validator, CancellationToken ct) =>
+{
+    var context = new ValidationContext<UsuarioUpdateDto>(usuarioDto);
+    context.RootContextData["Id"] = id;
+
+    var validationResult = await validator.ValidateAsync(context);
+
+    if (!validationResult.IsValid)
+        return Results.ValidationProblem(validationResult.ToDictionary());
+
+    var usuarioAtualizado = await service.AtualizarAsync(id, usuarioDto, ct);
+
+    if (usuarioAtualizado == null)
+        return Results.NotFound(new { message = $"Usuário com id {id} não foi encontrado." });
+
+    return Results.Ok(usuarioAtualizado);
+});
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
