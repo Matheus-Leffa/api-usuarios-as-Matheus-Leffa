@@ -66,6 +66,14 @@ app.MapPut("/usuarios/{id}", async (int id, UsuarioUpdateDto usuarioDto, IUsuari
     return Results.Ok(usuarioAtualizado);
 });
 
+// Delete
+app.MapDelete("/usuarios/{id:int}", async(int id, IUsuarioService service, CancellationToken ct) =>
+{
+    var remover = await service.RemoverAsync(id, ct);
+
+    return remover ? Results.NoContent() : Results.NotFound(new { message = $"Usuário com id {id} não foi encontrado." });
+});
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
