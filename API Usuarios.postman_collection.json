@@ -4,25 +4,20 @@
 		"name": "API Usuarios",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "48797867",
-		"_collection_link": "https://www.postman.com/matheusleffa-8999646/workspace/api-usurios/collection/48797867-71becf05-3c38-4fc7-ae63-d8fd834fe45d?action=share&source=collection_link&creator=48797867"
+		"_collection_link": "https://www.postman.com/matheusleffa-8999646/api-usurios/collection/lie25oh/api-usuarios?action=share&source=collection_link&creator=48797867"
 	},
 	"item": [
 		{
 			"name": "Listar usuários",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
-				"header": []
-			},
-			"response": []
-		},
-		{
-			"name": "Criar usuário válido",
-			"request": {
-				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nome\": \"Matheus Leffa\",\r\n    \"email\": \"exemplo@exemplo.com\",\r\n    \"senha\": \"abc123\",\r\n    \"dataNascimento\": \"2005-01-01\",\r\n    \"telefone\": \"51981859365\"\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -38,6 +33,168 @@
 					"port": "5075",
 					"path": [
 						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar usuários por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5075/usuarios/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5075",
+					"path": [
+						"usuarios",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar usuário válido",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Emerson Piva\",\r\n    \"email\": \"exemplo@exemplo3.com\",\r\n    \"senha\": \"dxd7548\",\r\n    \"dataNascimento\": \"2004-01-01\",\r\n    \"telefone\": \"51985859345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5075/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5075",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuário email duplicado",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"João Paulo\",\r\n    \"email\": \"exemplo@exemplo3.com\",\r\n    \"senha\": \"abc123\",\r\n    \"dataNascimento\": \"2005-01-01\",\r\n    \"telefone\": \"51981859365\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5075/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5075",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario com dados inválidos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"CD\",\r\n    \"email\": \"exemplo-inválido\",\r\n    \"senha\": \"erro\",\r\n    \"dataNascimento\": \"2018-01-01\",\r\n    \"telefone\": \"8574\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5075/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5075",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar dado de usuário",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Milene Zuchi de Souza e Borba e Campos\",\r\n    \"email\": \"exemplo@exemplo3.com\",\r\n    \"senha\": \"abc123\",\r\n    \"dataNascimento\": \"2005-01-01\",\r\n    \"telefone\": \"51981859365\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5075/usuarios/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5075",
+					"path": [
+						"usuarios",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar dado de usuário Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5075/usuarios/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5075",
+					"path": [
+						"usuarios",
+						"3"
 					]
 				}
 			},
