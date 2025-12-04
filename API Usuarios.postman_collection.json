@@ -1,0 +1,47 @@
+{
+	"info": {
+		"_postman_id": "71becf05-3c38-4fc7-ae63-d8fd834fe45d",
+		"name": "API Usuarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48797867",
+		"_collection_link": "https://www.postman.com/matheusleffa-8999646/workspace/api-usurios/collection/48797867-71becf05-3c38-4fc7-ae63-d8fd834fe45d?action=share&source=collection_link&creator=48797867"
+	},
+	"item": [
+		{
+			"name": "Listar usuários",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Criar usuário válido",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Matheus Leffa\",\r\n    \"email\": \"exemplo@exemplo.com\",\r\n    \"senha\": \"abc123\",\r\n    \"dataNascimento\": \"2005-01-01\",\r\n    \"telefone\": \"51981859365\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5075/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5075",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
